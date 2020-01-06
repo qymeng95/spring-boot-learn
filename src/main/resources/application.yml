@@ -1,0 +1,14 @@
+## ÅäÖÃ¶Ë¿Ú
+server:
+  port: 8080
+
+## mybatis
+mybatis:
+  type-aliases-package: com.sbl.model
+
+## ÅäÖÃDB
+spring:
+  datasource.url: jdbc:mysql://localhost:3306/test
+  datasource.username: root
+  datasource.password" root
+  datasource.driver-class-name: com.mysql.jdbc.Driver
