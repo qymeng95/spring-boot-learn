@@ -1,28 +1,41 @@
 package com.sbl.model;
 
-import com.sbl.enums.UserSexEnum;
-
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue
     private Long id;
+    @Column(nullable = false, unique = true)
     private String userName;
+    @Column(nullable = false)
     private String passWord;
-    private UserSexEnum userSex;
+    @Column(nullable = false, unique = true)
+    private String email;
+    @Column(nullable = true, unique = true)
     private String nickName;
+    @Column(nullable = false)
+    private String regTime;
 
     public User() {
         super();
     }
 
-    public User(String userName, String passWord, UserSexEnum userSex) {
+    public User(String nickName, String email, String userName, String passWord, String regTime) {
         super();
+        this.email = email;
+        this.nickName = nickName;
         this.passWord = passWord;
         this.userName = userName;
-        this.userSex = userSex;
+        this.regTime = regTime;
     }
 
     public Long getId() {
@@ -49,12 +62,12 @@ public class User implements Serializable {
         this.passWord = passWord;
     }
 
-    public UserSexEnum getUserSex() {
-        return userSex;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserSex(UserSexEnum userSex) {
-        this.userSex = userSex;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNickName() {
@@ -65,10 +78,12 @@ public class User implements Serializable {
         this.nickName = nickName;
     }
 
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return "userName " + this.userName + ", pasword " + this.passWord + "sex " + userSex.name();
+    public String getRegTime() {
+        return regTime;
+    }
+
+    public void setRegTime(String regTime) {
+        this.regTime = regTime;
     }
 
 }
